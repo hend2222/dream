@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title data-i18n="login_title">DreamWings | تسجيل الدخول</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="library.style.css">
+</head>
+<body class="auth-body">
+
+   <!-- Top Bar: Back to Home & Language Switcher (Fixed to Top Left) -->
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 20px 40px; box-sizing: border-box; position: absolute; top: 0; left: 0; z-index: 10;">
+        <a href="home.html" class="auth-back-link" style="position: static; margin: 0;" data-i18n="back_home"><i class="fa-solid fa-arrow-left"></i> العودة للرئيسية</a>
+        <div class="lang-switcher">
+            <button onclick="switchLang('ar')" style="cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid #d4af37; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 13px;">عربي</button>
+            <button onclick="switchLang('en')" style="cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid #d4af37; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 13px; margin-right: 3px;">English</button>
+        </div>
+    </div>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-logo-icon">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+            <h2 data-i18n="login_heading">مرحباً بعودتك! 🌟</h2>
+            <p class="auth-subtitle" data-i18n="login_sub">تسجيل الدخول لمتابعة رحلة القراءة السحرية.</p>
+
+            <form class="comment-form" id="login-form">
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="البريد الإلكتروني" data-i18n-placeholder="email_placeholder" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="كلمة المرور" data-i18n-placeholder="password_placeholder" class="form-input">
+                </div>
+
+                <button type="submit" class="btn-read-now" style="width: 100%; justify-content: center; margin-top: 10px;">
+                    <i class="fa-solid fa-right-to-bracket"></i> <span data-i18n="signin_btn">تسجيل الدخول</span>
+                </button>
+
+                <button type="button" id="google-btn" class="google-login-btn" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #fff; color: #333; border: 1px solid #ddd; padding: 10px; border-radius: 8px; width: 100%; cursor: pointer; font-weight: bold; margin-top: 10px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                        <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.13 0-5.78-2.11-6.73-4.96H1.19v3.15C3.18 21.32 7.23 24 12 24z"/>
+                        <path fill="#FBBC05" d="M5.27 14.24c-.25-.72-.38-1.49-.38-2.24s.13-1.52.38-2.24V6.6H1.19C.43 8.13 0 9.87 0 12s.43 3.87 1.19 5.4l4.08-3.16z"/>
+                        <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.23 0 3.18 2.68 1.19 6.6l4.08 3.15c.95-2.85 3.6-4.96 6.73-4.96z"/>
+                    </svg>
+                    <span data-i18n="google_btn">تسجيل الدخول باستخدام جوجل</span>
+                </button>
+            </form>
+
+            <p class="auth-switch-text">
+                <span data-i18n="no_account">ليس لديك حساب؟</span> <a href="signup.html" data-i18n="create_one">إنشاء حساب</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- نظام الترجمة للصفحة -->
+    <script>
+      const loginDict = {
+        ar: {
+          login_title: "DreamWings | تسجيل الدخول",
+          back_home: "العودة للرئيسية",
+          login_heading: "مرحباً بعودتك! 🌟",
+          login_sub: "تسجيل الدخول لمتابعة رحلة القراءة السحرية.",
+          email_placeholder: "البريد الإلكتروني",
+          password_placeholder: "كلمة المرور",
+          signin_btn: "تسجيل الدخول",
+          google_btn: "تسجيل الدخول باستخدام جوجل",
+          no_account: "ليس لديك حساب؟",
+          create_one: "إنشاء حساب"
+        },
+        en: {
+          login_title: "DreamWings | Sign In",
+          back_home: "Back to Home",
+          login_heading: "Welcome Back! 🌟",
+          login_sub: "Log in to continue your magical reading journey.",
+          email_placeholder: "Email Address",
+          password_placeholder: "Password",
+          signin_btn: "Sign In",
+          google_btn: "Sign in with Google",
+          no_account: "Don't have an account?",
+          create_one: "Create one"
+        }
+      };
+
+      function switchLang(lang) {
+        localStorage.setItem('dw_lang', lang);
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        document.documentElement.setAttribute('lang', lang);
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (loginDict[lang] && loginDict[lang][key]) {
+            el.textContent = loginDict[lang][key];
+          }
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+          const key = el.getAttribute('data-i18n-placeholder');
+          if (loginDict[lang] && loginDict[lang][key]) {
+            el.placeholder = loginDict[lang][key];
+          }
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const currentLang = localStorage.getItem('dw_lang') || 'ar';
+        switchLang(currentLang);
+      });
+    </script>
+
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="notifications.js"></script>
+</body>
+</html>

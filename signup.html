@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title data-i18n="signup_title">DreamWings | إنشاء حساب</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="library.style.css">
+</head>
+<body class="auth-body">
+
+  <!-- Top Bar: Back to Home & Language Switcher (Fixed to Top Left) -->
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 20px 40px; box-sizing: border-box; position: absolute; top: 0; left: 0; z-index: 10;">
+        <a href="home.html" class="auth-back-link" style="position: static; margin: 0;" data-i18n="back_home"><i class="fa-solid fa-arrow-left"></i> العودة للرئيسية</a>
+        <div class="lang-switcher">
+            <button onclick="switchLang('ar')" style="cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid #d4af37; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 13px;">عربي</button>
+            <button onclick="switchLang('en')" style="cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid #d4af37; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 13px; margin-right: 3px;">English</button>
+        </div>
+    </div>
+
+   <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-logo-icon">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <h2 data-i18n="signup_heading">انضم إلى دريم وينجز! 🧡</h2>
+            <p class="auth-subtitle" data-i18n="signup_sub">أنشئ حساباً لاستكشاف الحكايات السحرية وحفظ المفضلة.</p>
+
+            <form class="comment-form" onsubmit="handleSignup(event)">
+                <div class="form-group">
+                    <input type="text" id="signupName" placeholder="الاسم الكامل" data-i18n-placeholder="name_placeholder" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <input type="email" id="signupEmail" placeholder="البريد الإلكتروني" data-i18n-placeholder="email_placeholder" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <input type="password" id="signupPassword" placeholder="أنشئ كلمة المرور" data-i18n-placeholder="password_placeholder" class="form-input">
+                </div>
+
+                <button type="submit" class="btn-read-now" style="width: 100%; justify-content: center; margin-top: 10px;">
+                    <i class="fa-solid fa-user-plus"></i> <span data-i18n="signup_btn">إنشاء حساب</span>
+                </button>
+            </form>
+
+            <p class="auth-switch-text">
+                <span data-i18n="has_account">لديك حساب بالفعل؟</span> <a href="login.html" data-i18n="signin_link">تسجيل الدخول</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- نظام الترجمة للصفحة -->
+    <script>
+      const signupDict = {
+        ar: {
+          signup_title: "DreamWings | إنشاء حساب",
+          back_home: "العودة للرئيسية",
+          signup_heading: "انضم إلى دريم وينجز! 🧡",
+          signup_sub: "أنشئ حساباً لاستكشاف الحكايات السحرية وحفظ المفضلة.",
+          name_placeholder: "الاسم الكامل",
+          email_placeholder: "البريد الإلكتروني",
+          password_placeholder: "أنشئ كلمة المرور",
+          signup_btn: "إنشاء حساب",
+          has_account: "لديك حساب بالفعل؟",
+          signin_link: "تسجيل الدخول"
+        },
+        en: {
+          signup_title: "DreamWings | Create Account",
+          back_home: "Back to Home",
+          signup_heading: "Join DreamWings! 🧡",
+          signup_sub: "Create an account to explore magical tales and save favorites.",
+          name_placeholder: "Full Name",
+          email_placeholder: "Email Address",
+          password_placeholder: "Create Password",
+          signup_btn: "Create Account",
+          has_account: "Already have an account?",
+          signin_link: "Sign In"
+        }
+      };
+
+      function switchLang(lang) {
+        localStorage.setItem('dw_lang', lang);
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        document.documentElement.setAttribute('lang', lang);
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (signupDict[lang] && signupDict[lang][key]) {
+            el.textContent = signupDict[lang][key];
+          }
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+          const key = el.getAttribute('data-i18n-placeholder');
+          if (signupDict[lang] && signupDict[lang][key]) {
+            el.placeholder = signupDict[lang][key];
+          }
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const currentLang = localStorage.getItem('dw_lang') || 'ar';
+        switchLang(currentLang);
+      });
+    </script>
+ 
+<script type="module">
+import { auth, db } from "./firebase-config.js";
+import { showToast, queueToast } from "./notifications.js";
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+const form = document.querySelector(".auth-card form");
+if (form) form.addEventListener("submit", async event => {
+  event.preventDefault();
+  const nameInput = document.getElementById("signupName");
+  const emailInput = document.getElementById("signupEmail");
+  const passwordInput = document.getElementById("signupPassword");
+  const button = form.querySelector('[type="submit"]');
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim().toLowerCase();
+  const password = passwordInput.value;
+
+  if (name.length < 2) { showToast("Please enter a name with at least two characters.", "warning"); nameInput.focus(); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showToast("Please enter a valid email address.", "warning"); emailInput.focus(); return; }
+  const strongPassword = password.length >= 8 && /[A-Z]/.test(password) && /[a-z]/.test(password) && /[0-9]/.test(password);
+  if (!strongPassword) { showToast("Use at least 8 characters, including uppercase and lowercase letters and a number.", "warning"); passwordInput.focus(); return; }
+
+  if (button) { button.disabled = true; button.dataset.originalText = button.innerHTML; button.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Creating account…'; }
+  try {
+    const { user } = await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(user, { displayName: name });
+    await setDoc(doc(db, "users", user.uid), { username: name, displayName: name, email, profilePic: "", createdAt: serverTimestamp() }, { merge: true });
+    await sendEmailVerification(user);
+    await signOut(auth);
+    queueToast("Your account is ready. Please verify your email using the link we just sent, then sign in.", "success", "Welcome to DreamWings");
+    window.location.replace("login.html");
+  } catch (error) {
+    console.error("Sign-up error:", error);
+    const messages = {
+      "auth/email-already-in-use": "This email is already registered. Please sign in instead.",
+      "auth/invalid-email": "That email address does not look valid.",
+      "auth/weak-password": "Please choose a stronger password.",
+      "auth/operation-not-allowed": "Email and password sign-up is not enabled in Firebase.",
+      "auth/network-request-failed": "Connection issue. Check your internet and try again."
+    };
+    showToast(messages[error.code] || "We could not create your account. Please try again.", "error");
+  } finally {
+    if (button) { button.disabled = false; button.innerHTML = button.dataset.originalText || '<i class="fa-solid fa-user-plus"></i> Create Account'; }
+  }
+});
+</script>
+</html>

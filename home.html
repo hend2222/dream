@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <!-- 📌 DreamWings - Modern Storybook Layout -->
+    <title>DreamWings | Magic Children Stories</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="home.style.css">
+<link rel="stylesheet" href="reader-profile.css">
+
+</head>
+<body>
+
+    <!-- 🌟 TRANSPARENT HEADER -->
+    <header class="navbar transparent-nav">
+        <div class="logo">
+            <div class="logo-icon-bg">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+            <span>DreamWings</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="home.html" class="active">Home</a>
+            <a href="library.html">Library</a>
+            <a href="about.html">About Me</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+
+<div class="lang-switcher">
+  <button onclick="changeLanguage('ar')" style="cursor: pointer; background: none; border: 1px solid #fff; color: #fff; padding: 5px 10px; border-radius: 5px; margin-left: 5px;">عربي</button>
+  <button onclick="changeLanguage('en')" style="cursor: pointer; background: none; border: 1px solid #fff; color: #fff; padding: 5px 10px; border-radius: 5px;">English</button>
+</div>
+
+   <div class="nav-actions">
+    <a href="favorite.html" class="fav-btn" data-requires-auth="true" title="Favorites" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">
+        <i class="fa-solid fa-star"></i>
+    </a>
+    
+    <!-- حاوية ديناميكية فارغة يرسمها الجافاسكريبت فوراً حسب حالة المستخدم -->
+    <div id="auth-container" style="display: inline-flex; align-items: center;">
+      <a href="login.html" class="login-btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px">
+        <i class="fa-brands fa-google"></i><span>Sign In</span>
+      </a>
+    </div>
+</div>
+
+
+    
+    </header>
+
+    <!-- 🌟 HERO SECTION (LEFT TEXT & TRANSPARENT PNG ARTWORK) -->
+    <main class="hero-section">
+        <div class="ambient-glow"></div>
+        
+        <div class="container hero-grid">
+            <!-- Left Side: Text Content -->
+            <div class="hero-text-side">
+                <div class="hero-text-badge">⭐ Interactive Story Library</div>
+                <h1 class="hero-title">Where Stories Fly & Dreams Begin</h1>
+                <p class="hero-subtitle">Step into a magical world of tales narrated with love and warmth for young curious minds.</p>
+
+                <button class="cta-btn-magical" onclick="window.location.href='library.html'">
+                    <span>Explore The Library</span>
+                    <i class="fa-solid fa-arrow-right-long"></i>
+                </button>
+            </div>
+
+     <!-- Right Side: Transparent Character Artwork -->
+<div class="hero-image-side" id="heroCharacter">
+    <div class="char-glow-bg"></div>
+    
+    <!-- حطي هنا اسم صورتك الصحيح بالامتداد بتاعها مثلاً hind-art.png -->
+    <img src="draw-11.png" alt="DreamWings Girl Character" class="transparent-char-img">
+    
+    <div class="magic-sparkles">
+        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+    </div>
+</div>
+    </main>
+
+    <!-- 🌟 WAVE SEPARATOR -->
+    <div class="wave-container">
+        <svg viewBox="0 0 1440 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,101.3C960,117,1056,139,1152,138.7C1248,139,1344,117,1392,106.7L1440,96L1440,180L1392,180C1344,180,1248,180,1152,180C1056,180,960,180,864,180C768,180,672,180,576,180C480,180,384,180,288,180C192,180,96,180,48,180L0,180Z" fill="#faf6f0"></path>
+        </svg>
+    </div>
+
+    <!-- 🌟 INTRO & AUDIO SECTION -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="story-card-glass">
+                <div class="audio-player-wrapper">
+                    <button class="play-pulse-btn" id="playAudioBtn">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
+                </div>
+
+                <div class="intro-content">
+                    <span class="narrator-tag">🎙️ Narrated by Hind</span>
+                    <h2>A Warm Hello to Little Adventurers!</h2>
+                    <p>Welcome to <strong>DreamWings</strong>. Every story here is crafted to inspire kindness, creativity, and wonder. Hit the play button to hear my personal welcome message!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 HOW IT WORKS SECTION -->
+    <section class="how-it-works-section">
+        <div class="container">
+            <div class="section-title-center">
+                <h2>How DreamWings Works</h2>
+                <p>A simple and magical journey for parents and children</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>Choose a Story</h3>
+                    <p>Browse our library filled with wonderful, hand-picked illustrated tales.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon"><i class="fa-solid fa-headphones-simple"></i></div>
+                    <h3>Listen & Read</h3>
+                    <p>Enjoy immersive reading combined with professional heartfelt voice narration.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon"><i class="fa-solid fa-heart"></i></div>
+                    <h3>Share the Joy</h3>
+                    <p>Save your favorite stories and create unforgettable bonding bedtime moments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>DreamWings</h3>
+                <p>Magical stories narrated with love to inspire young hearts and minds.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="home.html">Home</a>
+                <a href="library.html">Library</a>
+                <a href="about.html">About Me</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 DreamWings. All rights reserved. Designed with 🧡 by Hind.</p>
+        </div>
+    </footer>
+
+    <!-- GSAP & JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="home.script.js"></script>
+
+    <!-- 🌟 كود تتبع وحالة تسجيل الدخول (يرسم البروفايل أو زرار الـ Sign In بذكاء) -->
+    
+<script type="module" src="auth-state.js"></script>
+    <script type="module" src="access-control.js"></script>
+    <script type="module" src="notifications.js"></script>
+    <script src="language.js"></script>
+
+</body>
+</html>

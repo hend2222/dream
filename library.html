@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="lib_title">DreamWings | مكتبة القصص السحرية</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="library.style.css">
+    <link rel="stylesheet" href="reader-profile.css">
+</head>
+<body>
+
+    <!-- 🌟 NAVBAR -->
+    <header class="navbar transparent-nav">
+        <div class="logo">
+            <div class="logo-icon-bg">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+            <span>DreamWings</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="home.html" data-i18n="nav_home">الرئيسية</a>
+            <a href="library.html" class="active" data-i18n="nav_library">المكتبة</a>
+            <a href="about.html" data-i18n="nav_about">عن الكاتبة</a>
+            <a href="contact.html" data-i18n="nav_contact">تواصل معنا</a>
+        </nav>
+
+       <div class="nav-actions">
+            <!-- أزرار تبديل اللغة -->
+            <div class="lang-switcher" style="display: inline-block; margin-left: 10px;">
+                <button onclick="switchLang('ar')" style="cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid #d4af37; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 13px;">عربي</button>
+                <button onclick="switchLang('en')" style="cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid #d4af37; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 13px; margin-right: 3px;">English</button>
+            </div>
+
+            <a href="favorite.html" class="fav-btn" data-requires-auth="true" title="المفضلة" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">
+                <i class="fa-solid fa-star"></i>
+            </a>
+            <a href="profile.html" class="login-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fa-brands fa-google"></i> <span data-i18n="nav_profile">الملف الشخصي</span>
+            </a>
+       </div>
+    </header>
+
+    <!-- 🌟 LIBRARY HERO HEADER -->
+    <section class="library-hero">
+        <div class="ambient-glow"></div>
+        <div class="hero-content">
+            <div class="hero-text-badge" data-i18n="lib_badge">
+                <i class="fa-solid fa-sparkles glowing-star"></i> فئات القصص السحرية
+            </div>
+            <h1 class="library-title" data-i18n="lib_heading">استكشف أرفف مكتبتنا</h1>
+            <p class="library-subtitle" data-i18n="lib_sub">اختر فئة أدناه لاكتشاف حكايات رائعة ومغامرات سحرية!</p>
+        </div>
+    </section>
+
+    <!-- 🌟 WOODEN BOOKSHELVES SECTIONS -->
+    <main class="bookshelf-section">
+        <div class="container">
+            
+            <!-- 🪵 SHELF 1: Fantasy & Sci-Fi -->
+            <div class="shelf-wrapper">
+                <div class="shelf-header">
+                    <h2 data-i18n="shelf_1_title"><i class="fa-solid fa-wand-magic-sparkles"></i> حكايات الخيال العلمي والخيال السحري</h2>
+                </div>
+                
+                <div class="shelf-grid">
+                    <!-- Book 1: Space & Stars -->
+                    <div class="book-card" data-requires-auth="true" onclick="location.href='category.html?id=space-stars'">
+                        <div class="book-3d-wrapper">
+                            <div class="book-cover cat-book-1">
+                                <div class="book-spine-effect"></div>
+                                <div class="book-badge" data-i18n="badge_popular">شائع</div>
+                                <i class="fa-solid fa-rocket book-icon"></i>
+                                <h3 data-i18n="book_space_title">الفضاء والنجوم</h3>
+                                <span class="author" data-i18n="book_space_sub">مغامرات خيال علمي</span>
+                            </div>
+                        </div>
+                        <div class="book-shadow"></div>
+                    </div>
+
+                    <!-- Book 2: Magic Worlds -->
+                    <div class="book-card" data-requires-auth="true" onclick="location.href='category.html?id=secret-kingdoms'">
+                        <div class="book-3d-wrapper">
+                            <div class="book-cover cat-book-2">
+                                <div class="book-spine-effect"></div>
+                                <div class="book-badge" data-i18n="badge_magical">سحري</div>
+                                <i class="fa-solid fa-hat-wizard book-icon"></i>
+                                <h3 data-i18n="book_kingdoms_title">الممالك السرية</h3>
+                                <span class="author" data-i18n="book_kingdoms_sub">عوالم خيالية</span>
+                            </div>
+                        </div>
+                        <div class="book-shadow"></div>
+                    </div>
+
+                    <!-- Book 3: Time Travel -->
+                    <div class="book-card" data-requires-auth="true" onclick="location.href='category.html?id=time-portals'">
+                        <div class="book-3d-wrapper">
+                            <div class="book-cover cat-book-3">
+                                <div class="book-spine-effect"></div>
+                                <div class="book-badge" data-i18n="badge_exciting">مثير</div>
+                                <i class="fa-solid fa-hourglass-start book-icon"></i>
+                                <h3 data-i18n="book_portals_title">بوابات الزمن</h3>
+                                <span class="author" data-i18n="book_portals_sub">عجائب الخيال العلمي</span>
+                            </div>
+                        </div>
+                        <div class="book-shadow"></div>
+                    </div>
+                </div>
+                <div class="wooden-shelf-plank"><div class="wood-grain"></div></div>
+            </div>
+
+            <!-- 🪵 SHELF 2: Educational & Religious -->
+            <div class="shelf-wrapper">
+                <div class="shelf-header">
+                    <h2 data-i18n="shelf_2_title"><i class="fa-solid fa-book-quran"></i> التعليم والقيم</h2>
+                </div>
+                
+                <div class="shelf-grid">
+                    <!-- Book 4: Good Morals -->
+                    <div class="book-card" data-requires-auth="true" onclick="location.href='category.html?id=kind-hearts'">
+                        <div class="book-3d-wrapper">
+                            <div class="book-cover cat-book-4">
+                                <div class="book-spine-effect"></div>
+                                <div class="book-badge" data-i18n="badge_values">قيم</div>
+                                <i class="fa-solid fa-hands-holding-child book-icon"></i>
+                                <h3 data-i18n="book_hearts_title">قلوب طيبة</h3>
+                                <span class="author" data-i18n="book_hearts_sub">إسلامية وأخلاقية</span>
+                            </div>
+                        </div>
+                        <div class="book-shadow"></div>
+                    </div>
+
+                    <!-- Book 5: Science & Nature -->
+                    <div class="book-card" data-requires-auth="true" onclick="location.href='category.html?id=little-scientist'">
+                        <div class="book-3d-wrapper">
+                            <div class="book-cover cat-book-5">
+                                <div class="book-spine-effect"></div>
+                                <div class="book-badge" data-i18n="badge_learn">تعلم</div>
+                                <i class="fa-solid fa-flask book-icon"></i>
+                                <h3 data-i18n="book_scientist_title">العالم الصغير</h3>
+                                <span class="author" data-i18n="book_scientist_sub">مرح تعليمي</span>
+                            </div>
+                        </div>
+                        <div class="book-shadow"></div>
+                    </div>
+
+                    <!-- Book 6: Bedtime Stories -->
+                    <div class="book-card" data-requires-auth="true" onclick="location.href='category.html?id=sleepy-star-dreams'">
+                        <div class="book-3d-wrapper">
+                            <div class="book-cover cat-book-6">
+                                <div class="book-spine-effect"></div>
+                                <div class="book-badge" data-i18n="badge_bedtime">وقت النوم</div>
+                                <i class="fa-solid fa-cloud-moon book-icon"></i>
+                                <h3 data-i18n="book_dreams_title">أحلام النجوم الناعمة</h3>
+                                <span class="author" data-i18n="book_dreams_sub">وقت نوم هادئ</span>
+                            </div>
+                        </div>
+                        <div class="book-shadow"></div>
+                    </div>
+                </div>
+                <div class="wooden-shelf-plank"><div class="wood-grain"></div></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 🌟 FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>DreamWings</h3>
+                <p data-i18n="footer_desc">قصص سحرية مسجلة بكل حب لإلهام قلوب وعقول الصغار.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_links">روابط سريعة</h4>
+                <a href="home.html" data-i18n="nav_home">الرئيسية</a>
+                <a href="library.html" data-i18n="nav_library">المكتبة</a>
+                <a href="about.html" data-i18n="nav_about">عن الكاتبة</a>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_connect">تواصل معنا</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-i18n="footer_copy">© 2026 DreamWings. جميع الحقوق محفوظة. تصميم بكل حب بواسطة هند.</p>
+        </div>
+    </footer>
+
+    <script src="home.script.js"></script>
+    <script type="module" src="auth-state.js"></script>
+    <script type="module" src="favorites.js"></script>
+    <script type="module" src="access-control.js"></script>
+    <script type="module" src="notifications.js"></script>
+    <script src="library-lang.js"></script> 
+</body>
+</html>

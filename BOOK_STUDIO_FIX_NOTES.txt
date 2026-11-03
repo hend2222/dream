@@ -1,0 +1,5 @@
+BOOK STUDIO FIX
+- Fixed a literal backslash-n in book-admin.js that caused a JavaScript SyntaxError and stopped the entire module from loading.
+- Added inline styling for the Book Studio form so the section is clearly visible and laid out.
+- Aligned delete, edit, and upload authorization with the same owner/admin check used to reveal the form (original owner UID or users/{uid}.role == "admin" / isAdmin == true).
+- Existing pages and Firebase config retained.

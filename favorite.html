@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamWings | My Favorite Stories</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="library.style.css">
+<link rel="stylesheet" href="reader-profile.css">
+</head>
+<body data-requires-auth-page="true">
+
+    <!-- NAVBAR -->
+    <header class="navbar transparent-nav">
+        <div class="logo">
+            <div class="logo-icon-bg">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+            <span>DreamWings</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="library.html">Library</a>
+            <a href="about.html">About Me</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="favorite.html" class="fav-btn active" title="Favorites">
+                <i class="fa-solid fa-star"></i>
+            </a>
+            <a href="profile.html" class="login-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-user-circle"></i> Profile
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="library-hero">
+        <div class="hero-content">
+            <div class="hero-text-badge">
+                <i class="fa-solid fa-star"></i> Magical Collection
+            </div>
+            <h1 class="library-title">My Favorite Stories ⭐</h1>
+            <p class="library-subtitle">All the magical tales you loved and saved in one cozy place.</p>
+        </div>
+    </section>
+
+    <!-- MAIN FAVORITES CONTENT (BOOKSHELF) -->
+    <main class="bookshelf-section" style="padding-top: 10px;">
+        <div class="container">
+            
+            <div class="shelf-wrapper">
+                <div class="shelf-header">
+                    <h2><i class="fa-solid fa-bookmark"></i> Saved Tales</h2>
+                </div>
+                
+                <!-- شبكة الكتب المفضلة -->
+                <div class="shelf-grid" id="favoritesGrid">
+                    <!-- Saved favorites are rendered for the current account -->
+                </div>
+                <!-- رف خشبي ديكوري -->
+                <div class="wooden-shelf-plank"><div class="wood-grain"></div></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>DreamWings</h3>
+                <p>Magical stories narrated with love to inspire young hearts and minds.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <a href="home.html">Home</a>
+                <a href="library.html">Library</a>
+                <a href="about.html">About Me</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 DreamWings. All rights reserved. Designed with 🧡 by Hind.</p>
+        </div>
+    </footer>
+
+<script type="module" src="auth-state.js"></script>
+<script type="module" src="favorites.js"></script>
+<script type="module" src="access-control.js"></script>
+    <script type="module" src="notifications.js"></script>
+    <script src="language.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamWings | الملف الشخصي</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="library.style.css">
+    <link rel="stylesheet" href="reader-profile.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar transparent-nav">
+        <div class="logo">
+            <div class="logo-icon-bg">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+            <span>DreamWings</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="home.html">الرئيسية</a>
+            <a href="library.html">المكتبة</a>
+            <a href="about.html">عن الكاتبة</a>
+            <a href="contact.html">تواصل معنا</a>
+        </nav>
+
+        <div class="nav-actions">
+            <!-- أزرار تبديل اللغة -->
+            <div class="lang-switcher" style="display: inline-block; margin-left: 10px;">
+                <button onclick="changeLanguage('ar')" style="cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid #d4af37; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 13px;">عربي</button>
+                <button onclick="changeLanguage('en')" style="cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid #d4af37; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 13px; margin-right: 3px;">English</button>
+            </div>
+
+            <a href="favorite.html" class="fav-btn" title="المفضلة"
+               style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center">
+                <i class="fa-solid fa-star"></i>
+            </a>
+
+            <a href="profile.html" class="login-btn"
+               style="text-decoration:none;display:inline-flex;align-items:center;gap:8px">
+                <i class="fa-brands fa-google"></i> الملف الشخصي
+            </a>
+        </div>
+    </header>
+
+    <!-- PROFILE HERO -->
+    <section class="library-hero">
+        <div class="hero-content">
+            <div class="profile-avatar-wrapper">
+                <div id="profileHeroAvatar" class="profile-avatar-large"></div>
+            </div>
+
+            <h1 class="library-title" id="profileUserName">
+                مرحباً، هند! 🧡
+            </h1>
+
+            <div class="hero-text-badge" style="margin-top:10px">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                مستكشف القصص المحترف
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN PROFILE -->
+    <main class="bookshelf-section" style="padding-top:10px">
+        <div class="container">
+
+            <!-- STATS -->
+            <div class="profile-stats-grid">
+                <div class="profile-stat-card">
+                    <i class="fa-solid fa-book-bookmark"></i>
+                    <h3 id="storiesReadCount">0</h3>
+                    <p>القصص المقروءة</p>
+                </div>
+
+                <div class="profile-stat-card">
+                    <i class="fa-solid fa-star"></i>
+                    <h3 id="favoriteCount">0</h3>
+                    <p>الكتب المفضلة</p>
+                </div>
+
+                <div class="profile-stat-card">
+                    <i class="fa-solid fa-headphones"></i>
+                    <h3 id="listeningTime">0 دقائق</h3>
+                    <p>وقت الاستماع</p>
+                </div>
+            </div>
+
+            <!-- PERSONALIZE PROFILE -->
+            <section class="profile-edit-card">
+
+                <h2>
+                    <i class="fa-solid fa-user-pen"></i>
+                    تخصيص ملفك الشخصي
+                </h2>
+
+                <div class="profile-edit-row" style="margin:18px 0">
+
+                    <div id="profileEditAvatar" class="profile-avatar-large"></div>
+
+                    <div>
+                        <label for="avatarUpload" class="avatar-upload-label">
+                            اختر صورتك السحرية
+                        </label>
+
+                        <input
+                            id="avatarUpload"
+                            type="file"
+                            accept="image/jpeg,image/png,image/webp"
+                        >
+
+                        <p class="studio-help">
+                            اختر صورة بصيغة JPG أو PNG أو WebP (بحد أقصى 5 ميجابايت).
+                        </p>
+                    </div>
+
+                </div>
+
+                <h3>أو اختر شخصية رمزية سحرية</h3>
+
+                <div id="avatarChoices" class="profile-edit-row" style="margin:14px 0">
+
+                    <button type="button" class="avatar-choice" data-avatar="🦊">🦊</button>
+                    <button type="button" class="avatar-choice" data-avatar="🐻">🐻</button>
+                    <button type="button" class="avatar-choice" data-avatar="🦉">🦉</button>
+                    <button type="button" class="avatar-choice" data-avatar="🐱">🐱</button>
+                    <button type="button" class="avatar-choice" data-avatar="🦋">🦋</button>
+                    <button type="button" class="avatar-choice" data-avatar="🦄">🦄</button>
+                    <button type="button" class="avatar-choice" data-avatar="🐼">🐼</button>
+                    <button type="button" class="avatar-choice" data-avatar="🐰">🐰</button>
+
+                </div>
+
+                <p id="profileSaveStatus" class="studio-help" aria-live="polite"></p>
+
+            </section>
+
+            <!-- FAVORITES -->
+            <div class="shelf-wrapper" style="margin-top:60px">
+
+                <div class="shelf-header">
+                    <h2>
+                        <i class="fa-solid fa-star"></i>
+                        قصصي المفضلة المحفوظة
+                    </h2>
+                </div>
+
+                <div class="shelf-grid" id="profileFavoritesGrid">
+                    <!-- Favorites are loaded from the signed-in user account -->
+                </div>
+
+                <div class="wooden-shelf-plank">
+                    <div class="wood-grain"></div>
+                </div>
+
+            </div>
+
+            <!-- BOOK STUDIO -->
+            <div style="text-align:center;margin-top:32px">
+
+                <a href="book-studio.html" class="btn-read-now"
+                   style="display:inline-flex;text-decoration:none">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    إضافة قصة / استوديو الكتب
+                </a>
+
+                <p class="studio-help" style="margin-top:8px">
+                    لمالك الموقع: إضافة قصص، صور الغلاف، الرسومات التوضيحية، الصوت والفيديو الاختياري.
+                </p>
+
+            </div>
+
+            <!-- LOGOUT -->
+            <div style="text-align:center;margin-top:50px">
+
+                <button onclick="handleLogout()" class="btn-logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    تسجيل الخروج
+                </button>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <div class="footer-col">
+                <h3>DreamWings</h3>
+                <p>قصص سحرية مسجلة بكل حب لإلهام قلوب وعقول الصغار.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>روابط سريعة</h4>
+                <a href="home.html">الرئيسية</a>
+                <a href="library.html">المكتبة</a>
+                <a href="about.html">عن الكاتبة</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>تواصل معنا</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 DreamWings. جميع الحقوق محفوظة. تصميم بكل حب بواسطة هند.</p>
+        </div>
+
+    </footer>
+
+    <script type="module" src="profile.js"></script>
+    <script type="module" src="auth-state.js"></script>
+    <script type="module" src="favorites.js"></script>
+    <script type="module" src="notifications.js"></script>
+    <script src="language.js"></script>
+</body>
+</html>

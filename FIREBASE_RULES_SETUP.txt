@@ -1,0 +1,95 @@
+DREAMWINGS FIREBASE PERMISSIONS + STORAGE CORS FIX
+
+Your Firebase project:
+  Project ID: dreamwings-2777e
+  Storage bucket: dreamwings-2777e.firebasestorage.app
+  Site owner UID used by book-admin.js: LNghcfytsiU2x627gt4iAzPFaFH3
+
+A) FIRESTORE RULES (Firebase Console > Firestore Database > Rules)
+Replace/publish the rules with the following. This permits public reading of books
+and category names, but only the owner can create/update/delete books/categories.
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null && request.auth.uid == "LNghcfytsiU2x627gt4iAzPFaFH3";
+    }
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+    match /books/{bookId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+    match /comments/{commentId} {
+      allow read: if true;
+      allow create: if request.resource.data.name is string
+        && request.resource.data.name.size() <= 80
+        && request.resource.data.text is string
+        && request.resource.data.text.size() <= 2000
+        && request.resource.data.rating is int
+        && request.resource.data.rating >= 1 && request.resource.data.rating <= 5;
+    }
+    match /contactMessages/{messageId} {
+      allow create: if request.resource.data.name is string
+        && request.resource.data.email is string
+        && request.resource.data.message is string
+        && request.resource.data.message.size() <= 5000;
+      allow read, update, delete: if isAdmin();
+    }
+  }
+}
+
+B) STORAGE RULES (Firebase Console > Storage > Rules)
+Publish these rules. They allow public image/video/audio reads and owner-only uploads.
+
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isAdmin() {
+      return request.auth != null && request.auth.uid == "LNghcfytsiU2x627gt4iAzPFaFH3";
+    }
+    match /profilePictures/{uid}/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == uid
+        && request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+    match /books/{bookId}/{fileName} {
+      allow read: if true;
+      allow write: if isAdmin()
+        && request.resource.size < 300 * 1024 * 1024;
+    }
+  }
+}
+
+C) CORS FOR LOCAL LIVE SERVER (the browser error in the console)
+A failed preflight can also happen if the bucket CORS policy does not allow your
+local origin. Save the adjacent file storage-cors.json, then run ONE of these
+commands from Google Cloud SDK terminal after authenticating to the Google account
+that owns this Firebase project:
+
+  gcloud storage buckets update gs://dreamwings-2777e.firebasestorage.app --cors-file=storage-cors.json
+
+or (older SDK):
+  gsutil cors set storage-cors.json gs://dreamwings-2777e.firebasestorage.app
+
+The CORS file allows localhost and 127.0.0.1 ports 5502 and 5503 used by Live Server.
+If Live Server picks another port, add that exact origin to storage-cors.json and
+apply the command again. CORS is not a substitute for Firebase Storage Rules.
+
+D) VERIFY
+1. Confirm Firebase Console > Storage shows the bucket named exactly
+   dreamwings-2777e.firebasestorage.app and that Storage is enabled.
+2. Publish both rulesets above (Firestore and Storage are separate screens).
+3. Apply CORS command above.
+4. Reload the site, sign in with the owner account, and retry one small cover image.
+
+The Book Studio now shows all six built-in shelf categories even if Firestore category
+listing is temporarily denied. Custom categories still require the Firestore categories
+read/write rules above.

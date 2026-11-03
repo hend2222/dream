@@ -1,0 +1,22 @@
+RESTORE THE ADD-BOOK PAGE
+
+The Book Studio page is still book-studio.html. It was being hidden because
+book-admin.js only allowed one hard-coded Firebase Auth UID.
+
+This repaired version:
+1. Keeps the original owner UID authorized.
+2. Also allows an account whose Firestore document users/{uid} contains:
+       role: "admin"
+   or:
+       isAdmin: true
+3. Keeps the Book Studio unavailable to ordinary visitors.
+
+If the Add a Book / Book Studio button opens an access-restricted message:
+- Sign in using the site-owner account; or
+- In Firebase Console > Firestore Database > users > the document whose ID
+  is your Firebase Authentication UID, add the field role with string value
+  admin. Do not add this role to ordinary reader accounts.
+- Refresh book-studio.html.
+
+The profile page contains the Add a Book / Book Studio entry point.
+The actual form remains in book-studio.html and uses book-admin.js.

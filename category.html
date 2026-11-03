@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="cat_title">DreamWings | تصنيف القصص</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="library.style.css"><link rel="stylesheet" href="reader-profile.css">
+<style>
+.category-shelf-hero .hero-content{text-align:center}.category-shelf-hero .back-link{display:inline-block;margin-bottom:18px}
+#categorySymbol{width:64px;height:64px;margin:0 auto 14px;border-radius:20px;display:grid;place-items:center;color:white;font-size:28px;box-shadow:0 10px 24px #0005}
+#categoryBooks .shelf-grid{grid-template-columns:repeat(auto-fit,minmax(190px,1fr));align-items:end;gap:34px 28px;padding-bottom:8px}
+#categoryBooks .book-card-real{position:relative;cursor:pointer;text-align:center;min-width:0}
+#categoryBooks .book-card-real .book-3d-wrapper{width:190px;height:270px;margin:auto;perspective:1000px}
+#categoryBooks .book-card-real .real-book-cover{width:190px;height:270px;position:relative;overflow:hidden;border-radius:5px 13px 13px 5px;box-shadow:-7px 0 15px #0008,0 13px 25px #0008;transition:transform .35s;transform-style:preserve-3d}
+#categoryBooks .book-card-real:hover .real-book-cover{transform:translateY(-12px) rotateY(-9deg)}
+#categoryBooks .real-book-cover img{width:100%;height:100%;object-fit:cover;display:block}
+#categoryBooks .book-spine-effect{position:absolute;inset:0 auto 0 0;width:13px;background:linear-gradient(90deg,#0009,#fff3,#0002);pointer-events:none}
+#categoryBooks .book-shadow{height:16px;width:80%;margin:5px auto 0;background:radial-gradient(ellipse,#0009,transparent 70%)}
+#categoryBooks .dw-book-caption{margin-top:10px;color:#fff0df;font:600 15px Quicksand,sans-serif}
+#categoryBooks .dw-book-caption span{display:block;color:#d9b99a;font-size:12px;margin-top:4px}
+#categoryBooks .dw-admin-actions{display:flex;justify-content:center;gap:9px;margin:12px auto 0;position:relative;z-index:5}
+#categoryBooks .dw-admin-actions button{border:0;border-radius:18px;padding:8px 13px;color:#fff;font:700 12px Quicksand;cursor:pointer;box-shadow:0 3px 8px #0004}
+#categoryBooks .dw-admin-edit{background:linear-gradient(135deg,#bd7830,#e9ad51)}#categoryBooks .dw-admin-delete{background:linear-gradient(135deg,#923d35,#c85b4c)}
+#categoryBooks .dw-cat-empty{grid-column:1/-1;text-align:center;padding:40px;color:#e8cdb1}
+</style>
+</head>
+<body>
+<header class="navbar transparent-nav">
+  <div class="logo">
+    <div class="logo-icon-bg"><i class="fa-solid fa-book-open"></i></div>
+    <span>DreamWings</span>
+  </div>
+  <nav class="nav-links">
+    <a href="home.html" data-i18n="nav_home">الرئيسية</a>
+    <a href="library.html" class="active" data-i18n="nav_library">المكتبة</a>
+    <a href="about.html" data-i18n="nav_about">عن الكاتبة</a>
+    <a href="contact.html" data-i18n="nav_contact">تواصل معنا</a>
+  </nav>
+  <div class="nav-actions">
+    <div class="lang-switcher" style="display: inline-block; margin-left: 10px;">
+        <button onclick="switchLang('ar')" style="cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid #d4af37; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 13px;">عربي</button>
+        <button onclick="switchLang('en')" style="cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid #d4af37; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 13px; margin-right: 3px;">English</button>
+    </div>
+    <a href="favorite.html" class="fav-btn" data-requires-auth="true" title="المفضلة"><i class="fa-solid fa-star"></i></a>
+    <a href="profile.html" class="login-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-brands fa-google"></i> <span data-i18n="nav_profile">الملف الشخصي</span></a>
+  </div>
+</header>
+
+<section class="library-hero category-shelf-hero">
+  <div class="hero-content">
+    <a href="library.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="back_to_cats">العودة إلى الفئات</span></a>
+    <div id="categorySymbol"><i class="fa-solid fa-book-open"></i></div>
+    <div class="hero-text-badge" data-i18n="cat_hero_badge">
+      <i class="fa-solid fa-wand-magic-sparkles"></i> مجموعة القصص السحرية
+    </div>
+    <h1 class="library-title" id="categoryTitle">قصص</h1>
+    <p class="library-subtitle" data-i18n="cat_sub">اختر كتاباً وابدأ مغامرة جديدة ✨</p>
+  </div>
+</section>
+
+<main class="bookshelf-section">
+  <div class="container">
+    <div class="shelf-wrapper">
+      <div class="shelf-header">
+        <h2 data-i18n="shelf_stories_title"><i class="fa-solid fa-compass"></i> قصص على هذا الرف</h2>
+      </div>
+      <div id="categoryBooks" class="shelf-grid"><p class="dw-cat-empty" data-i18n="loading_stories">جاري تحميل القصص…</p></div>
+      <div class="wooden-shelf-plank"><div class="wood-grain"></div></div>
+    </div>
+  </div>
+</main>
+
+<script>
+  const categoryDict = {
+    ar: {
+      cat_title: "DreamWings | تصنيف القصص",
+      nav_home: "الرئيسية",
+      nav_library: "المكتبة",
+      nav_about: "عن الكاتبة",
+      nav_contact: "تواصل معنا",
+      nav_profile: "الملف الشخصي",
+      back_to_cats: "العودة إلى الفئات",
+      cat_hero_badge: "مجموعة القصص السحرية",
+      cat_sub: "اختر كتاباً وابدأ مغامرة جديدة ✨",
+      shelf_stories_title: "قصص على هذا الرف",
+      loading_stories: "جاري تحميل القصص…",
+      "space-stars": "الفضاء والنجوم",
+      "secret-kingdoms": "الممالك السرية",
+      "time-portals": "بوابات الزمن",
+      "kind-hearts": "قلوب طيبة",
+      "little-scientist": "العالم الصغير",
+      "sleepy-star-dreams": "أحلام النجوم الناعمة"
+    },
+    en: {
+      cat_title: "DreamWings | Category",
+      nav_home: "Home",
+      nav_library: "Library",
+      nav_about: "About Me",
+      nav_contact: "Contact Us",
+      nav_profile: "Sign In",
+      back_to_cats: "Back to Categories",
+      cat_hero_badge: "Magical Story Collection",
+      cat_sub: "Choose a book and step into a new adventure ✨",
+      shelf_stories_title: "Stories on this Shelf",
+      loading_stories: "Loading stories…",
+      "space-stars": "Space & Stars",
+      "secret-kingdoms": "Secret Kingdoms",
+      "time-portals": "Time Portals",
+      "kind-hearts": "Kind Hearts",
+      "little-scientist": "Little Scientist",
+      "sleepy-star-dreams": "Sleepy Star Dreams"
+    }
+  };
+
+  function switchLang(lang) {
+    localStorage.setItem('dw_lang', lang);
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    document.documentElement.setAttribute('lang', lang);
+
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (categoryDict[lang] && categoryDict[lang][key]) {
+        el.textContent = categoryDict[lang][key];
+      }
+    });
+
+    applyCategoryTitle(lang);
+  }
+
+  function applyCategoryTitle(lang) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const catId = urlParams.get('id');
+    const titleEl = document.getElementById('categoryTitle');
+    if (catId && categoryDict[lang] && categoryDict[lang][catId]) {
+      // نخزن الترجمة كخاصية عشان لو السكريپت الخارجي حاول يغيرها نعرف نرجّعها فوراً
+      titleEl.setAttribute('data-translated-title', categoryDict[lang][catId]);
+      titleEl.textContent = categoryDict[lang][catId];
+    }
+  }
+
+  // مراقبة ذكية: لو السكريپت الخارجي غير العنوان للإنجليزي بالغلط، نرجعه للترجمة الصحيحة فوراً
+  const observer = new MutationObserver(() => {
+    const currentLang = localStorage.getItem('dw_lang') || 'ar';
+    const titleEl = document.getElementById('categoryTitle');
+    if (titleEl) {
+      const expectedTitle = titleEl.getAttribute('data-translated-title');
+      if (expectedTitle && titleEl.textContent !== expectedTitle) {
+        titleEl.textContent = expectedTitle;
+      }
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const currentLang = localStorage.getItem('dw_lang') || 'ar';
+    switchLang(currentLang);
+
+    const titleEl = document.getElementById('categoryTitle');
+    if (titleEl) {
+      observer.observe(titleEl, { childList: true, characterData: true, subtree: true });
+    }
+  });
+</script>
+
+<script type="module" src="book-admin.js"></script>
+<!-- رجعنا ملف category-page.js عشان الكتب تظهر وتتحمل تماماً -->
+<script type="module" src="category-page.js"></script>
+</body>
+</html>

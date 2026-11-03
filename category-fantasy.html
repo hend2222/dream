@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title data-i18n="cat_fantasy_title">DreamWings | حكايات الخيال وقت النوم</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="library.style.css">
+    <link rel="stylesheet" href="reader-profile.css">
+</head>
+<body data-requires-auth-page="true">
+
+    <!-- NAVBAR -->
+    <header class="navbar transparent-nav">
+        <div class="logo">
+            <div class="logo-icon-bg">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+            <span>DreamWings</span>
+        </div>
+
+        <nav class="nav-links">
+            <a href="home.html" data-i18n="nav_home">الرئيسية</a>
+            <a href="library.html" class="active" data-i18n="nav_library">المكتبة</a>
+            <a href="about.html" data-i18n="nav_about">عن الكاتبة</a>
+            <a href="contact.html" data-i18n="nav_contact">تواصل معنا</a>
+        </nav>
+
+        <div class="nav-actions">
+            <!-- أزرار تبديل اللغة -->
+            <div class="lang-switcher" style="display: inline-block; margin-left: 10px;">
+                <button onclick="switchLang('ar')" style="cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid #d4af37; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 13px;">عربي</button>
+                <button onclick="switchLang('en')" style="cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid #d4af37; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 13px; margin-right: 3px;">English</button>
+            </div>
+
+            <a href="favorite.html" class="fav-btn" data-requires-auth="true" title="المفضلة" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">
+                <i class="fa-solid fa-star"></i>
+            </a>
+            <a href="profile.html" class="login-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fa-brands fa-google"></i> <span data-i18n="nav_profile">الملف الشخصي</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- CATEGORY HERO HEADER -->
+    <section class="library-hero">
+        <div class="hero-content">
+            <a href="library.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="back_to_cats">العودة إلى الفئات</span></a>
+            <div class="hero-text-badge" style="margin-top: 15px;" data-i18n="cat_hero_badge">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> حكايات خيالية وسحرية
+            </div>
+            <h1 class="library-title" data-i18n="cat_hero_title">مجموعة قصص النوم السحرية</h1>
+            <p class="library-subtitle" data-i18n="cat_hero_sub">انقر على أي غلاف كتاب لبدء القراءة أو الاستماع إلى الصوت المسجل!</p>
+        </div>
+    </section>
+
+    <!-- WOODEN BOOKSHELVES SECTION -->
+    <main class="bookshelf-section">
+        <div class="container">
+            
+            <!-- 🪵 SHELF 1: Courage & Inspiration -->
+            <div class="shelf-wrapper">
+                <div class="shelf-header">
+                    <h2 data-i18n="shelf_dreams_title"><i class="fa-solid fa-compass"></i> الأحلام والمغامرات</h2>
+                </div>
+                
+                <div class="shelf-grid">
+                    <!-- Book 1: The Little Dreamer -->
+                    <div class="book-card-real" data-book-id="the-little-dreamer" data-title="The Little Dreamer" data-image="book-8.jfif" data-description="A story about believing in yourself." data-author="Hind" onclick="openStoryModal('The Little Dreamer', 'A story about believing in yourself.', 'book-1.png', 'Hind')">
+                        <div class="book-3d-wrapper">
+                            <div class="real-book-cover">
+                                <img src="book-8.jfif" alt="The Little Dreamer">
+                                <div class="book-spine-effect"></div>
+                            </div>
+                        </div>
+                        <div class="book-shadow"></div>
+                    </div>
+
+                    <!-- Book 2: The Story Keeper -->
+                    <div class="book-card-real" data-book-id="the-story-keeper" data-title="The Story Keeper" data-image="book-9.jfif" data-description="A tale of imagination, courage, and magic." data-author="Hind" onclick="openStoryModal('The Story Keeper', 'A tale of imagination, courage, and magic.', 'book-2.jpg', 'Hind')">
+                        <div class="book-3d-wrapper">
+                            <div class="real-book-cover">
+                                <img src="book-9.jfif" alt="The Story Keeper">
+                                <div class="book-spine-effect"></div>
+                            </div>
+                        </div>
+                        <div class="book-shadow"></div>
+                    </div>
+
+                    <!-- Book 3: Benny Bear and the Sleepy Star -->
+                    <div class="book-card-real" data-book-id="benny-bear-sleepy-star" data-title="Benny Bear & the Sleepy Star" data-image="book-10.jfif" data-description="A heartwarming bedtime story about friendship and sweet dreams." data-author="Hind" onclick="openStoryModal('Benny Bear & the Sleepy Star', 'A heartwarming bedtime story about friendship and sweet dreams.', 'book-3.png', 'Hind')">
+                        <div class="book-3d-wrapper">
+                            <div class="real-book-cover">
+                                <img src="book-10.jfif" alt="Benny Bear">
+                                <div class="book-spine-effect"></div>
+                            </div>
+                        </div>
+                        <div class="book-shadow"></div>
+                    </div>
+                </div>
+                <div class="wooden-shelf-plank"><div class="wood-grain"></div></div>
+            </div>
+
+            <!-- 🪵 SHELF 2: Nighttime & Magic Lights -->
+            <div class="shelf-wrapper">
+                <div class="shelf-header">
+                    <h2 data-i18n="shelf_moonlight_title"><i class="fa-solid fa-moon"></i> ضوء القمر والعجائب</h2>
+                </div>
+                
+                <div class="shelf-grid">
+                    <!-- Book 4: Lila and The Midnight Lantern -->
+                    <div class="book-card-real" data-book-id="lila-midnight-lantern" data-title="Lila & The Midnight Lantern" data-image="book-4.jfif" data-description="A magical adventure in Willowbrook." data-author="Hind" onclick="openStoryModal('Lila & The Midnight Lantern', 'A magical adventure in Willowbrook.', 'book-4.jfif', 'Hind')">
+                        <div class="book-3d-wrapper">
+                            <div class="real-book-cover">
+                                <img src="book-4.jfif" alt="Lila and The Midnight Lantern">
+                                <div class="book-spine-effect"></div>
+                            </div>
+                        </div>
+                        <div class="book-shadow"></div>
+                    </div>
+
+                    <!-- Book 5: Tales from Twinkle-Wood -->
+                    <div class="book-card-real" data-book-id="tales-twinkle-wood" data-title="Tales from Twinkle-Wood" data-image="book-5.jfif" data-description="Bedtime adventures with Lulu & friends." data-author="Hind" onclick="openStoryModal('Tales from Twinkle-Wood', 'Bedtime adventures with Lulu & friends.', 'book-5.jfif', 'Hind')">
+                        <div class="book-3d-wrapper">
+                            <div class="real-book-cover">
+                                <img src="book-5.jfif" alt="Tales from Twinkle-Wood">
+                                <div class="book-spine-effect"></div>
+                            </div>
+                        </div>
+                        <div class="book-shadow"></div>
+                    </div>
+
+                    <!-- Book 6: The Little Star Who Was Afraid to Shine -->
+                    <div class="book-card-real" data-book-id="the-little-star" data-title="The Little Star" data-image="book-6.jfif" data-description="A gentle story about courage, friendship, and finding your own light." data-author="DB" onclick="openStoryModal('The Little Star', 'A gentle story about courage, friendship, and finding your own light.', 'book-6.jfif', 'DB')">
+                        <div class="book-3d-wrapper">
+                            <div class="real-book-cover">
+                                <img src="book-6.jfif" alt="The Little Star">
+                                <div class="book-spine-effect"></div>
+                            </div>
+                        </div>
+                        <div class="book-shadow"></div>
+                    </div>
+                </div>
+                <div class="wooden-shelf-plank"><div class="wood-grain"></div></div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 🌟 STORY PREVIEW MODAL -->
+    <div class="story-modal-overlay" id="storyModal">
+        <div class="story-modal-card">
+            <button class="modal-close-btn" onclick="closeStoryModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body">
+                <div class="modal-cover-side">
+                    <img id="modalBookCover" src="" alt="Book Cover">
+                </div>
+                <div class="modal-info-side">
+                    <span class="modal-badge"><i class="fa-solid fa-sparkles"></i> <span data-i18n="featured_story">قصة مميزة</span></span>
+                    <h2 id="modalBookTitle">Story Title</h2>
+                    <p class="modal-author"><span data-i18n="written_by">تأليف:</span> <strong id="modalBookAuthor">Hind</strong></p>
+                    <p class="modal-desc" id="modalBookDesc">Story description goes here...</p>
+                    <div class="story-reading-note" id="storyReadingNote" data-i18n="reading_note">قصتك جاهزة. اضغط على "استمع واقرأ" للاستماع إلى القصة بصوت عالٍ.</div>
+
+                    <div class="modal-actions">
+                        <button class="btn-read-now" id="listenReadBtn" type="button">
+                            <i class="fa-solid fa-headphones"></i> <span data-i18n="listen_read_btn">استمع واقرأ</span>
+                        </button>
+                        <button class="btn-fav-story" data-favorite-toggle data-book-id="" data-title="" data-image="" data-description="" data-author="" title="Add to Favorites" aria-label="Add to Favorites">
+                            <i class="fa-solid fa-star"></i>
+                        </button>
+                    </div>
+                    <section class="reader-panel" id="readerPanel" hidden>
+                      <div class="reader-panel-heading"><h3 data-i18n="reader_panel_heading">اقرأ واستمع</h3><span id="readerStatus" data-i18n="reader_status">اختر كيف تريد الاستمتاع بهذه القصة.</span></div>
+                      <div class="reader-story-text" id="readerStoryText"></div>
+                      <iframe id="readerBookFrame" title="Book document" hidden style="width:100%;height:380px;border:0;border-radius:12px;background:#fff"></iframe>
+                      <a id="readerBookDownload" hidden target="_blank" rel="noopener" data-i18n="open_download_file">فتح / تنزيل ملف الكتاب</a>
+                      <audio id="storyAudioPlayer" controls preload="metadata" hidden></audio>
+                      <div class="reader-controls">
+                        <button type="button" id="speechPlayBtn" class="reader-control-btn"><i class="fa-solid fa-volume-high"></i> <span data-i18n="read_aloud_btn">قراءة صوتية</span></button>
+                        <button type="button" id="speechStopBtn" class="reader-control-btn"><i class="fa-solid fa-stop"></i> <span data-i18n="stop_btn">إيقاف</span></button>
+                      </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>DreamWings</h3>
+                <p data-i18n="footer_desc">قصص سحرية مسجلة بكل حب لإلهام قلوب وعقول الصغار.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_links">روابط سريعة</h4>
+                <a href="home.html" data-i18n="nav_home">الرئيسية</a>
+                <a href="library.html" data-i18n="nav_library">المكتبة</a>
+                <a href="about.html" data-i18n="nav_about">عن الكاتبة</a>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_connect">تواصل معنا</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-i18n="footer_copy">© 2026 DreamWings. جميع الحقوق محفوظة. تصميم بكل حب بواسطة هند.</p>
+        </div>
+    </footer>
+
+    <!-- STORY MODAL INTERACTION -->
+    <script>
+      function openStoryModal(title, description, image, author) {
+        const modal = document.getElementById("storyModal");
+        document.getElementById("modalBookTitle").textContent = title;
+        document.getElementById("modalBookDesc").textContent = description;
+        document.getElementById("modalBookCover").src = image;
+        document.getElementById("modalBookAuthor").textContent = author || "DreamWings";
+        const card = [...document.querySelectorAll(".book-card-real[data-book-id]")].find(el => el.dataset.title === title);
+        const fav = document.querySelector("[data-favorite-toggle]");
+        if (fav) {
+          fav.dataset.bookId = card?.dataset.bookId || title.toLowerCase().replace(/[^a-z0-9]+/g,"-");
+          fav.dataset.title = title; fav.dataset.image = image;
+          fav.dataset.description = description; fav.dataset.author = author || "DreamWings";
+        }
+        document.getElementById("readerPanel").hidden = true;
+        modal.classList.add("active");
+        document.body.classList.add("modal-open");
+        document.dispatchEvent(new CustomEvent("favorite-modal-open", {bubbles:true}));
+      }
+      function closeStoryModal() {
+        document.getElementById("storyModal").classList.remove("active");
+        document.body.classList.remove("modal-open");
+        const audio = document.getElementById("storyAudioPlayer"); audio.pause(); audio.removeAttribute("src"); audio.load();
+        if (window.speechSynthesis) window.speechSynthesis.cancel();
+      }
+    </script>
+
+    <!-- ملف قاموس وترجمة الصفحة -->
+    <script>
+      const fantasyDict = {
+        ar: {
+          cat_fantasy_title: "DreamWings | حكايات الخيال وقت النوم",
+          nav_home: "الرئيسية",
+          nav_library: "المكتبة",
+          nav_about: "عن الكاتبة",
+          nav_contact: "تواصل معنا",
+          nav_profile: "الملف الشخصي",
+          back_to_cats: "العودة إلى الفئات",
+          cat_hero_badge: "حكايات خيالية وسحرية",
+          cat_hero_title: "مجموعة قصص النوم السحرية",
+          cat_hero_sub: "انقر على أي غلاف كتاب لبدء القراءة أو الاستماع إلى الصوت المسجل!",
+          shelf_dreams_title: "الأحلام والمغامرات",
+          shelf_moonlight_title: "ضوء القمر والعجائب",
+          featured_story: "قصة مميزة",
+          written_by: "تأليف:",
+          reading_note: "قصتك جاهزة. اضغط على \"استمع واقرأ\" للاستماع إلى القصة بصوت عالٍ.",
+          listen_read_btn: "استمع واقرأ",
+          reader_panel_heading: "اقرأ واستمع",
+          reader_status: "اختر كيف تريد الاستمتاع بهذه القصة.",
+          open_download_file: "فتح / تنزيل ملف الكتاب",
+          read_aloud_btn: "قراءة صوتية",
+          stop_btn: "إيقاف",
+          footer_desc: "قصص سحرية مسجلة بكل حب لإلهام قلوب وعقول الصغار.",
+          footer_links: "روابط سريعة",
+          footer_connect: "تواصل معنا",
+          footer_copy: "© 2026 DreamWings. جميع الحقوق محفوظة. تصميم بكل حب بواسطة هند."
+        },
+        en: {
+          cat_fantasy_title: "DreamWings | Fantasy & Bedtime Stories",
+          nav_home: "Home",
+          nav_library: "Library",
+          nav_about: "About Me",
+          nav_contact: "Contact Us",
+          nav_profile: "Sign In",
+          back_to_cats: "Back to Categories",
+          cat_hero_badge: "Fantasy & Magical Tales",
+          cat_hero_title: "Magical Bedtime Collection",
+          cat_hero_sub: "Click on any book cover to start reading or listening to the narrated audio!",
+          shelf_dreams_title: "Dreams & Adventures",
+          shelf_moonlight_title: "Moonlight & Wonders",
+          featured_story: "Featured Story",
+          written_by: "Written by:",
+          reading_note: "Your story is ready. Press “Listen & Read” to hear the story read aloud.",
+          listen_read_btn: "Listen & Read",
+          reader_panel_heading: "Read & Listen",
+          reader_status: "Choose how you would like to enjoy this story.",
+          open_download_file: "Open / download book file",
+          read_aloud_btn: "Read aloud",
+          stop_btn: "Stop",
+          footer_desc: "Magical stories narrated with love to inspire young hearts and minds.",
+          footer_links: "Quick Links",
+          footer_connect: "Connect",
+          footer_copy: "© 2026 DreamWings. All rights reserved. Designed with 🧡 by Hind."
+        }
+      };
+
+      function switchLang(lang) {
+        localStorage.setItem('dw_lang', lang);
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        document.documentElement.setAttribute('lang', lang);
+
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (fantasyDict[lang] && fantasyDict[lang][key]) {
+            el.textContent = fantasyDict[lang][key];
+          }
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const currentLang = localStorage.getItem('dw_lang') || 'ar';
+        switchLang(currentLang);
+      });
+    </script>
+
+    <script type="module" src="book-reader.js"></script>
+    <script type="module" src="book-catalog.js"></script>
+    <script type="module" src="book-admin.js"></script>
+    <script type="module" src="auth-state.js"></script>
+    <script type="module" src="favorites.js"></script>
+    <script type="module" src="access-control.js"></script>
+    <script type="module" src="notifications.js"></script>
+</body>
+</html>
